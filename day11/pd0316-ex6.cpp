@@ -1,22 +1,33 @@
 #include <iostream>
+#include <string>
 #include <random>
+
 using namespace std;
 
 int main() {
+	
 	random_device rd;
+	mt19937 gen(rd());
+
+	uniform_int_distribution<int> dis(1, 500);
+	string com_out;
 
 	
+	int Count;
 
-
+	cout << "ìˆ«ìž ìž…ë ¥ : "; cin >> Count;
 	
-	
-			int num = rd() % 5;		// 0 ~ 9 ÀÇ ¼ö¸¦ °®´Â´Ù.
-			num += 1;					// 1 ~ 10 ÀÇ ¼ö¸¦ °®´Â´Ù.
-			
-			//int num = rd() % 10 + 1	// ÇÑÁÙ·Î °£´ÜÈ÷ ÀÛ¼º
-			cout << num << " ";
+	for (int i = 0; i < Count; i++)
+	{
+		int com = dis(gen);
 		
-		cout << "\n";
+		cout << "ëžœë¤ ìˆ«ìž : " << com;
+		cout << endl;
+
+		
+	}
+	
+	
 	
 
 	return 0;
