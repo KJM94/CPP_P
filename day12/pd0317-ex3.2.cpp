@@ -5,7 +5,7 @@ using namespace std;
 
 const int NAME_LEN = 20;
 
-void ShowMenu(void); // 메뉴
+void ShowMenu(void); // 메
 void MakeAccount(void); // 계좌개설
 void DepositMoney(void); // 입금
 void WithdrawMoney(void); // 출금
