@@ -1,0 +1,71 @@
+#include "QtWidgetsApplication.h"
+
+QtWidgetsApplication::QtWidgetsApplication(QWidget *parent)
+    : QDialog(parent)
+{
+    ui.setupUi(this);
+
+    connect(ui.comboBox, SIGNAL(cliecked()), this, SLOT(on_btn_run()));
+    connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(on_btn_run()));
+
+    ui.comboBox->addItem("Male ");
+    ui.comboBox->addItem("Female ");
+
+}
+
+void QtWidgetsApplication::on_btn_run()
+{
+    QString str;
+
+    str.append(QString::fromLocal8Bit("성별: "));
+    if (ui.comboBox->currentIndex() == 0) 
+    {
+        str.append(QString::fromLocal8Bit("남성 "));
+    }
+    else 
+    {
+        str.append(QString::fromLocal8Bit("여성 "));
+    }
+
+    str.append(QString::fromLocal8Bit("출생년도 : "));
+    str.append(QString("%1 ").arg(ui.spinBox->cleanText()));
+
+    if (ui.radioButton->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("출생지 : 대구 "));
+    }
+    if (ui.radioButton_2->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("출생지 : 경북 "));
+    }
+    if (ui.radioButton_3->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("출생지 : 기타 "));
+    }
+
+    str.append(QString::fromLocal8Bit("취미 : "));
+
+    if (ui.checkBox->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("스키 "));
+    }
+    if (ui.checkBox_2->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("등산 "));
+    }
+    if (ui.checkBox_3->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("요트 "));
+    }
+    if (ui.checkBox_4->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("운동 "));
+    }
+    if (ui.checkBox_5->isChecked())
+    {
+        str.append(QString::fromLocal8Bit("독서 "));
+    }
+
+    ui.label->setText(str);
+
+}
