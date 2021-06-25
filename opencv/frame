@@ -1,0 +1,40 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+int main()
+{
+	Mat frame;
+	VideoCapture cap("aespa.mp4");
+
+	if (!cap.isOpened())
+	{
+		cout << "동영상을 열 수 없습니다." << endl;
+		return -1;
+	}
+
+	Mat frame_gray;
+
+	while (1)
+	{
+		bool ret = cap.read(frame); // frame 은 img_src 동일
+		// 이미지 처리를 해주면 됨
+		cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
+		
+		//
+		imshow("Video", frame);
+		imshow("Video-Gray", frame_gray);
+		
+		int key = waitKey(33);
+
+		if (key == 27) // ESC 키
+			break;
+	}
+
+	cap.release();
+
+	waitKey(0);
+	destroyAllWindows();
+}
