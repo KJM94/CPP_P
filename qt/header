@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtWidgets/QDialog>
-
 #include "ui_QtWidgetsApplication.h"
 
 class QtWidgetsApplication : public QDialog
